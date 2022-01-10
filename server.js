@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
+const assignRoutes = require('./routes/assignRoutes');
+const submitRoutes = require('./routes/submitRoutes');
 
 app.use(cors());
 app.use(morgan('dev'));
@@ -11,11 +13,23 @@ app.use(express.json());
 app.use(cookieParser());
 
 //Authentication
-//signup
 app.use('/api/auth',authRoutes);
-//signin
+app.use('/api/assignment',assignRoutes);
+app.use('/api/submission',submitRoutes);
+
+//questionaire 
+//(tutor create, read, update and delete questions)
+//description,list of students, publishing(ongoing/scheduled) and deadline date.
+
+//(student)
+//(read,add submission*only once)
+//submission- remark(text)
+//submitted or not
 
 
+const connectDB = require('./database/db');
+
+connectDB();
 
 
 

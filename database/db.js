@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 
-const connectDB = async() =>{
+const connectDB = async () => {
     try{
-        await mongoose.connect('mongodb+srv://abhishek:toddle-test@123@toddle.wcnp8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
-            userNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('Database connection established');
+        await mongoose.connect('mongodb+srv://toddle-test:testing123@toddletest.njf6g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
+        );
+    console.log('Database Connection Success');
     }
-    catch(err){
-        consoe.log("Error couldn't connect with Database",err);
+    catch{
+        console.log(err);
     }
-};
+}
 
 module.exports = connectDB;
