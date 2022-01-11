@@ -4,14 +4,16 @@ exports.create = async(req,res) => {
         let assignment = new Assignment()
         assignment.title = req.body.title;
         assignment.description = req.body.description;
-        assignment.students = [...req.body.assignedStudents];
-        assignment.pusblishDate = req.body.pusblishDate;
-        assignment.deadlineDate = req.body.deadlineDate;
+        for (let entry of req.body.students){
+            assignment.students.push({studName: entry.name,studMail:entry.email})
+        }     //error
+        assignment.publishDate = req.body.publishDate;
+        assignment.deadline = req.body.deadline;
         assignment.status = req.body.status;
-
+        console.log(assignment)
         await assignment.save();
         res.json({
-            successServerMsg:`${title} was created`,
+            successServerMsg:`Object was successfully created`,
             assignment 
         })
 
@@ -19,7 +21,7 @@ exports.create = async(req,res) => {
         console.log(err,'Assignment.Create Error')
         
     res.status(500).json({
-        errorMessage: "Please try again later",
+        errorServerMsg: "Please try again later",
     });
     }
 }
@@ -30,7 +32,7 @@ exports.readAll = async (req, res) => {
 	} catch (err) {
 		console.log(err, 'productController.readAll error');
 		res.status(500).json({
-			errorMessage: 'Please try again later',
+			errorServerMsg: 'Please try again later',
 		});
 	}
 }

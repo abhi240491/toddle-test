@@ -124,19 +124,19 @@ const TutorAssignmentModal = () => {
     } else if (checkStudentInfo(assignmentStudents)) {
       setClientError("Student Email is required field");
     } else {
-      let formData = new FormData();
-      formData.append("title",assignmentTitle);
-      formData.append("description",assignmentDescription);
-      formData.append("students",assignmentStudents);
-      formData.append("publishDate",assignmentPublishDate);
-      formData.append("deadline",assignmentDeadline);
-      formData.append("status",assignmentStatus);
+      let formData = {};
+      formData["title"]=assignmentTitle;
+      formData["description"]=assignmentDescription;
+      formData["students"]=[...assignmentStudents];
+      formData["publishDate"]=assignmentPublishDate;
+      formData["deadline"]=assignmentDeadline;
+      formData["status"]=assignmentStatus;
       
       dispatch(createAssignment(formData));
       setAssignmentData({
         assignmentTitle: "",
         assignmentDescription: "",
-        assignmentStudents: [],
+        assignmentStudents: [{ name: "", email: "" }],
         assignmentPublishDate: "",
         assignmentDeadline: "",
         assignmentStatus: "",

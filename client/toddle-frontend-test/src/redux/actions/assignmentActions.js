@@ -8,9 +8,6 @@ import { GET_ASSIGNMENTS, CREATE_ASSIGNMENT, GET_ASSIGNMENT, DELETE_ASSIGNMENT} 
 
 
 export const createAssignment = formdata => async dispatch => {
-	for (var key of formdata.entries()) {
-        console.log(key[0] + ', ' + key[1]);
-    }
   try {
     dispatch({ type: START_LOADING });
     const response = await axios.post("/api/assignment", formdata);
@@ -18,13 +15,13 @@ export const createAssignment = formdata => async dispatch => {
     dispatch({type: CREATE_ASSIGNMENT, payload: response.data.assignment})
     dispatch({
       type: SHOW_SUCCESS_MESSAGE,
-      payload: response.data.successMessage,
+      payload: response.data.successServerMsg,
     });
   } catch (err) {
     dispatch({ type: STOP_LOADING });
     dispatch({
       type: SHOW_ERROR_MESSAGE,
-      payload: err.response.data.errorMessage,
+      payload: err.response.data.errorServerMsg,
     });
   }
 };
@@ -43,7 +40,7 @@ export const getAssignments = () => async dispatch => {
 		dispatch({ type: STOP_LOADING });
 		dispatch({
 			type: SHOW_ERROR_MESSAGE,
-			payload: err.response.data.errorMessage,
+			payload: err.response.data.errorServerMsg,
 		});
 	}
 };
@@ -62,7 +59,7 @@ export const getAssignment = assignmentId => async dispatch => {
 		dispatch({ type: STOP_LOADING });
 		dispatch({
 			type: SHOW_ERROR_MESSAGE,
-			payload: err.response.data.errorMessage,
+			payload: err.response.data.errorServerMsg,
 		});
 	}
 };
@@ -78,7 +75,6 @@ export const deleteAssignment = (assignmentId) => async dispatch => {
   catch(err){
     console.log('assignmentActions, deleteAssignment api error:', err);
     dispatch({type: STOP_LOADING});
-    dispatch({type: SHOW_ERROR_MESSAGE, payload: err.response.data.errorMessage})
+    dispatch({type: SHOW_ERROR_MESSAGE, payload: err.response.data.errorServerMsg})
   }
 };
- 

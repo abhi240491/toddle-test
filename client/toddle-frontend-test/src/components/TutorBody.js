@@ -9,15 +9,11 @@ const TutorBody = () => {
 	console.log(assignments)
 	return (
 		<div className='container'>
-			<div className='row'>
-				<div className='card-deck'>
 					{assignments &&
 						assignments.map(assignment => (
 							<Card key={assignment._id} assignment={assignment} />
 						))}
-				</div>
 			</div>
-		</div>
 	);
 };
 
