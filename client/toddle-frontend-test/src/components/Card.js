@@ -21,7 +21,7 @@ const Card = ({ assignment }) => {
       {assignment.students.map((student) => (
         <>
         <p className ="card-text">Name: {student?.studName}</p>
-        <p className ="card-text">Email: {student?.studEmail}</p>
+        <p className ="card-text">Email: {student?.studMail}</p>
         <p className ="card-text">SumbissionStatus {student?.submissionStatus?'submitted':'false'}</p>
         {student.submission?<p className ="card-text">Submission: {student?.submission}</p>:<></>}
         </>

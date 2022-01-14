@@ -14,11 +14,6 @@ const TutorActionButtons = () => {
               <i className="fas fa-plus"> </i> Add Assignments
             </button>
           </div>
-          <div className="col-md-4 my-1 ml-auto">
-            <button className="btn btn-outline-success btn-block">
-              <i className="fas fa-money-check-alt"> </i> View Assignments
-            </button>
-          </div>
         </div>
       </div>
     </div>

@@ -246,8 +246,7 @@ const TutorAssignmentModal = () => {
                     <div className="form-group col-md-5 mr-auto">
                       <label className="text-secondary">Publish Date</label>
                       <DatePicker
-                        selected={assignmentPublishDate}
-                        dateFormat="dd-mm-yyyy"
+                        selected={assignmentPublishDate}                  
                         onChange={handleStartDateChange}
                         selectsStart
                         startDate={assignmentPublishDate}
@@ -261,7 +260,6 @@ const TutorAssignmentModal = () => {
                       <label className="text-secondary">Deadline!!</label>
                       <DatePicker
                         selected={assignmentDeadline}
-                        dateFormat="dd-mm-yyyy"
                         onChange={handleEndDateChange}
                         selectsEnd
                         startDate={assignmentPublishDate}

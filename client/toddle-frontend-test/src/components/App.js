@@ -18,8 +18,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/signin" component={SignIn} />
-          {/*<UserRoute exact path="/user/dashboard" component={UserDashboard} />*/}
+          <Route exact path="/signin" component={SignIn} />  
           <TutorRoute
             exact
             path="/tutor/dashboard"

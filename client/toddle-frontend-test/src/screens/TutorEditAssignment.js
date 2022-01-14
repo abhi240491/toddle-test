@@ -200,7 +200,6 @@ function TutorEditAssignment({ match, history }) {
                           <label className="text-secondary">Publish Date</label>
                           <DatePicker
                             selected={assignmentPublishDate}
-                            dateFormat="dd-mm-yyyy"
                             onChange={handleStartDateChange}
                             selectsStart
                             startDate={assignmentPublishDate}
@@ -214,7 +213,6 @@ function TutorEditAssignment({ match, history }) {
                           <label className="text-secondary">Deadline!!</label>
                           <DatePicker
                             selected={assignmentDeadline}
-                            dateFormat="dd-mm-yyyy"
                             onChange={handleEndDateChange}
                             selectsEnd
                             startDate={assignmentPublishDate}
