@@ -39,7 +39,6 @@ const TutorAssignmentModal = () => {
     assignmentStatus,
   } = assignmentData;
 
-  
   //student details area
   const handleStartDateChange = (date) => {
     let status;
@@ -53,18 +52,16 @@ const TutorAssignmentModal = () => {
       date.getMonth(),
       date.getDate(),
     ].join("");
-    if (publishedOn > tod)
-      status = "Scheduled"
-    else 
-      status = "Live"
+    if (publishedOn > tod) status = "Scheduled";
+    else status = "Live";
 
-      console.log(status)
+    console.log(status);
     setAssignmentData({
       ...assignmentData,
       assignmentPublishDate: date,
       assignmentStatus: status,
-  });
-  console.log("Student Start Date",assignmentData, assignmentStatus);
+    });
+    console.log("Student Start Date", assignmentData, assignmentStatus);
   };
 
   const handleEndDateChange = (date) => {
@@ -72,16 +69,17 @@ const TutorAssignmentModal = () => {
       ...assignmentData,
       assignmentDeadline: date,
     });
-    console.log("Student Start Date",assignmentData, assignmentStatus);
-}
+    console.log("Student Start Date", assignmentData, assignmentStatus);
+  };
   const handleStudentInputChange = (e, index) => {
     const { name, value } = e.target;
     const list = [...assignmentStudents];
     list[index][name] = value;
     setAssignmentData({
       ...assignmentData,
-      assignmentStudents:list});
-   // console.log("List",list,inputList);
+      assignmentStudents: list,
+    });
+    // console.log("List",list,inputList);
   };
   const handleStudentRemoveClick = (index) => {
     const list = [...assignmentStudents];
@@ -89,15 +87,16 @@ const TutorAssignmentModal = () => {
     list.splice(index, 1);
     setAssignmentData({
       ...assignmentData,
-      assignmentStudents:list
-  });
-}
+      assignmentStudents: list,
+    });
+  };
   const handleStudentAddClick = () => {
     setAssignmentData({
-      ...assignmentData, 
-    assignmentStudents: [...assignmentStudents,{name: "", email: "" }]});
-    console.log("Student Add",assignmentData)
-    }
+      ...assignmentData,
+      assignmentStudents: [...assignmentStudents, { name: "", email: "" }],
+    });
+    console.log("Student Add", assignmentData);
+  };
   const handleAssignmentChange = (evt) => {
     setAssignmentData({
       ...assignmentData,
@@ -118,20 +117,19 @@ const TutorAssignmentModal = () => {
   };
   const handleAssignmentSubmit = (evt) => {
     evt.preventDefault();
-    if (
-      isEmpty(assignmentDescription)) {
+    if (isEmpty(assignmentDescription)) {
       setClientError("Description, Publishing Date are required");
     } else if (checkStudentInfo(assignmentStudents)) {
       setClientError("Student Email is required field");
     } else {
       let formData = {};
-      formData["title"]=assignmentTitle;
-      formData["description"]=assignmentDescription;
-      formData["students"]=[...assignmentStudents];
-      formData["publishDate"]=assignmentPublishDate;
-      formData["deadline"]=assignmentDeadline;
-      formData["status"]=assignmentStatus;
-      
+      formData["title"] = assignmentTitle;
+      formData["description"] = assignmentDescription;
+      formData["students"] = [...assignmentStudents];
+      formData["publishDate"] = assignmentPublishDate;
+      formData["deadline"] = assignmentDeadline;
+      formData["status"] = assignmentStatus;
+
       dispatch(createAssignment(formData));
       setAssignmentData({
         assignmentTitle: "",
@@ -277,7 +275,8 @@ const TutorAssignmentModal = () => {
                   <div className="form-row">
                     <div className="form-group col-md-5 ml-auto">
                       <h5>
-                        Status: <span className="text-primary">{assignmentStatus}</span>
+                        Status:{" "}
+                        <span className="text-primary">{assignmentStatus}</span>
                       </h5>
                     </div>
                   </div>

@@ -46,6 +46,7 @@ export const getAssignments = () => async dispatch => {
 };
 
 export const getAssignment = assignmentId => async dispatch => {
+	console.log("getAssignment",assignmentId);
 	try {
 		dispatch({ type: START_LOADING });
 		const response = await axios.get(`/api/assignment/${assignmentId}`);
@@ -66,6 +67,7 @@ export const getAssignment = assignmentId => async dispatch => {
 
 
 export const deleteAssignment = (assignmentId) => async dispatch => {
+	console.log("DeleteAssignment",assignmentId);
   try {
     dispatch({type: START_LOADING});
     const response = await axios.delete(`/api/assignment/${assignmentId}`);

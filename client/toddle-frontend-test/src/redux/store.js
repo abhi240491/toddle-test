@@ -3,12 +3,10 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import loadingReducer from './reducers/loadingReducers';
 import messageReducer from './reducers/messageReducers';
-import categoryReducer from './reducers/categoryReducers';
 import assignmentReducer from './reducers/assignmentReducers';
 const reducer = combineReducers({
     loading: loadingReducer,
     messages: messageReducer,
-    categories: categoryReducer,
     assignments: assignmentReducer,
 })
 
