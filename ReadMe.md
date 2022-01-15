@@ -1,6 +1,6 @@
 //install the dependencies
 //use command
-npm run concurrently
+"npm run concurrently"
 
 //from root folder(ToddleApp);
 //Two users already created.
