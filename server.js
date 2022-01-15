@@ -5,7 +5,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/authRoutes');
 const assignRoutes = require('./routes/assignRoutes');
-const submitRoutes = require('./routes/submitRoutes');
+
 
 app.use(cors());
 app.use(morgan('dev'));
@@ -15,7 +15,6 @@ app.use(cookieParser());
 //Authentication
 app.use('/api/auth',authRoutes);
 app.use('/api/assignment',assignRoutes);
-app.use('/api/submission',submitRoutes);
 
 //questionaire 
 //(tutor create, read, update and delete questions)

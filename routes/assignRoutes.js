@@ -5,6 +5,7 @@ const assignment = require('../controller/assignmentController');
 
 router.post('/',authenticateJWT,assignment.create);
 router.get('/', assignment.readAll);
+router.get('/:assignmentId', assignment.read);
 router.put('/:assignmentId',authenticateJWT,assignment.update);
 router.delete('/:assignmentId',authenticateJWT, assignment.delete); 
 

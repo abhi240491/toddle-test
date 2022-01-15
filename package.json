@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start-build": "cd client/toddle-frontend-test && npm install && npm run build",
     "start-server": "nodemon server.js",
     "start-client": "npm start --prefix client/toddle-frontend-test",
     "concurrently": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "concurrently-build": "concurrently \"npm run start-server\" \"npm run start-build\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
